@@ -19,7 +19,6 @@
     Plugin 'skywind3000/asyncrun.vim'
     Plugin 'shawncplus/phpcomplete.vim'
     Plugin 'SirVer/ultisnips'
-    Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-surround'
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
@@ -29,7 +28,9 @@
     " TypeScript
     Plugin 'HerringtonDarkholme/yats.vim'
     Plugin 'leafgarland/typescript-vim'
-
+    " Git
+    Plugin 'airblade/vim-gitgutter'
+    Plugin 'tpope/vim-fugitive'
     call vundle#end()
 " }
 
@@ -90,6 +91,15 @@
     endfunc
 
 "    autocmd WinEnter * if &previewwindow && winnr() > 1 | wincmd L | endif
+" }
+
+" vim-gitgutter {
+    set updatetime=100
+    if exists('&signcolumn')
+        set signcolumn=yes
+    else
+        let g:gitgutter_sign_column_always = 1
+    endif
 " }
 
 " nerdtree {
