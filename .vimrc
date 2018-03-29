@@ -93,9 +93,17 @@
 " }
 
 " nerdtree {
-    let g:NERDTreeAutoDeleteBuffer = 1
-    autocmd vimenter * NERDTreeToggle
+    let NERDTreeShowHidden = 1
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * :call StartupNerdTree()
     nnoremap <silent><F1> :NERDTreeToggle<CR>
+
+    func StartupNerdTree()
+      if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in")
+        execute 'NERDTree' argv()[0] | wincmd p | ene
+        call NERDTreeFocus()
+      endif
+    endfunc
 " }
 
 " Fzf {
