@@ -1,3 +1,10 @@
+" Note
+" For fzf search code, need install the_silver_searcher
+"   brew install the_silver_searcher
+" And put this code to ~/.zshrc
+"   export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g '''
+"
+
 " Vundle {
     set nocompatible
     filetype off
@@ -8,8 +15,6 @@
     Plugin 'Chiel92/vim-autoformat'
     Plugin 'godlygeek/tabular'
     Plugin 'honza/vim-snippets'
-    Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plugin 'junegunn/fzf.vim'
     Plugin 'jwalton512/vim-blade'
     Plugin 'majutsushi/tagbar'
     Plugin 'mattn/emmet-vim'
@@ -25,6 +30,9 @@
     Plugin 'Valloric/YouCompleteMe'
     Plugin 'VundleVim/Vundle.vim'
     Plugin 'w0rp/ale'
+    " Fzf
+    Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plugin 'junegunn/fzf.vim'
     " TypeScript
     Plugin 'HerringtonDarkholme/yats.vim'
     Plugin 'leafgarland/typescript-vim'
@@ -89,8 +97,10 @@
             return a:char
         endif
     endfunc
+" }
 
-"    autocmd WinEnter * if &previewwindow && winnr() > 1 | wincmd L | endif
+" buffer {
+    nnoremap <leader>bd :bdelete<CR>
 " }
 
 " vim-gitgutter {
@@ -117,8 +127,9 @@
 " }
 
 " Fzf {
-    nnoremap <silent><F3> :Buffers<CR>
-    nnoremap <silent><F4> :Files<CR>
+    nnoremap <leader>ob :ls<CR>:b<space>
+    nnoremap <leader>of :Files<CR>
+    let g:ackprg = 'ag --nogroup --nocolor --column'
 " }
 
 " Tagbar {
@@ -126,8 +137,6 @@
 " }
 
 " vim-autoformat {
-    nnoremap <silent><F2> :Autoformat<CR>
-
     let g:autoformat_autoindent = 1
     let g:autoformat_retab = 1
     let g:autoformat_remove_trailing_spaces = 1
