@@ -90,17 +90,25 @@
     inoremap [ []<LEFT>
     inoremap ] <c-r>=ClosePair(']')<CR>
 
-    func! ClosePair(char)
+    function! ClosePair(char)
         if getline('.')[col('.') - 1] == a:char
             return "\<Right>"
         else
             return a:char
         endif
-    endfunc
+    endfunction
 " }
 
 " buffer {
-    nnoremap <leader>bd :bdelete<CR>
+    nnoremap <silent><leader>bd :call DeleteBuffer()<CR>
+    function DeleteBuffer()
+      if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) != 1
+        execute "bp | bd #"
+      else
+        execute "bd"
+        execute NERDTreeFocus()
+      endif
+    endfunction
 " }
 
 " vim-gitgutter {
@@ -228,7 +236,7 @@
 " }
 
 " function {
-    func! CompileAndRun()
+    function! CompileAndRun()
         execute "w"
         execute "copen"
         execute "normal \<c-k>"
@@ -237,13 +245,13 @@
         elseif &filetype == 'html' || &filetype == 'php'
             execute "AsyncRun open % -a Safari"
         endif
-    endfunc
+    endfunction
 
-    func! Rungdb()
-        exec "w"
-        exec "AsyncRun g++ % -g -o %<"
-        exec "AsyncRun gdb ./%<"
-    endfunc
+    function! Rungdb()
+        execute "w"
+        execute "AsyncRun g++ % -g -o %<"
+        execute "AsyncRun gdb ./%<"
+    endfunction
 
     " F1 ~ F12
     nnoremap <F5>  :call CompileAndRun()<CR>
