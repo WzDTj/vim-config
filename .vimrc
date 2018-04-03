@@ -73,8 +73,6 @@
     set tabstop=4
     set backspace=2
 
-    autocmd FileType javascript,less set shiftwidth=2 tabstop=2
-
     set completeopt=menuone,longest,preview
 
     let mapleader = ';'
@@ -135,7 +133,7 @@
 " }
 
 " Fzf {
-    nnoremap <leader>ob :ls<CR>:b<space>
+    nnoremap <leader>l :ls<CR>:b<space>
     nnoremap <leader>of :Files<CR>
     let g:ackprg = 'ag --nogroup --nocolor --column'
 " }
@@ -211,8 +209,20 @@
 " }
 
 " Ale {
+    let g:ale_completion_enabled = 1
     let g:ale_lint_on_text_changed = 'never'
     let g:ale_lint_on_enter = 0
+    let g:ale_fix_on_save = 1
+    let g:ale_linters = {
+    \   'javascript': ['eslint'],
+    \   'typescript': ['tslint'],
+    \   'php': ['phpcs'],
+    \}
+    let g:ale_fixers = {
+    \   'javascript': ['eslint'],
+    \   'typescript': ['tslint'],
+    \   'php': ['phpcbf'],
+    \}
 " }
 
 " Airline  {
