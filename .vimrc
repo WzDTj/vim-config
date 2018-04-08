@@ -111,8 +111,7 @@
       if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) != 1
         execute "bp | bd #"
       else
-        execute "bd #"
-        execute NERDTreeFocus()
+        execute "bd"
       endif
     endfunction
 " }
