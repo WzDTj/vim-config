@@ -1,7 +1,15 @@
 " Note
-" For fzf search code, need install the_silver_searcher
-"   brew install the_silver_searcher
-" And put this code to ~/.zshrc
+" Dependency Homebrew
+"   the_silver_searcher
+"   fzf
+" NPM
+"   js-beautify
+"   eslint
+"   tslint
+" Composer
+"   phpcs
+"
+" ZSH Config
 "   export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g '''
 "
 
@@ -146,6 +154,8 @@
     let g:autoformat_autoindent = 1
     let g:autoformat_retab = 1
     let g:autoformat_remove_trailing_spaces = 1
+    let g:formatdef_phpcbf = '"/Users/sunfun/.composer/vendor/bin/phpcbf"'
+    let g:formatters_php = ['phpcbf']
 " }
 
 " YouCompleteMe {
