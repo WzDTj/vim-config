@@ -111,7 +111,7 @@
       if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) != 1
         execute "bp | bd #"
       else
-        execute "bd"
+        execute "bd #"
         execute NERDTreeFocus()
       endif
     endfunction
@@ -135,7 +135,7 @@
     func StartupNerdTree()
       if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in")
         execute 'NERDTree' argv()[0] | wincmd p | ene
-        call NERDTreeFocus()
+        execute NERDTreeFocus()
       endif
     endfunc
 " }
@@ -151,6 +151,7 @@
 " }
 
 " vim-autoformat {
+    noremap <F3> :Autoformat<CR>
     let g:autoformat_autoindent = 1
     let g:autoformat_retab = 1
     let g:autoformat_remove_trailing_spaces = 1
