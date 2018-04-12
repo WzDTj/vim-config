@@ -20,6 +20,7 @@
     set rtp+=~/.vim/bundle/Vundle.vim
     call vundle#begin()
 
+    Plugin 'editorconfig/editorconfig-vim'
     Plugin 'Chiel92/vim-autoformat'
     Plugin 'godlygeek/tabular'
     Plugin 'honza/vim-snippets'
@@ -77,8 +78,8 @@
     set showmatch
 
     set expandtab
-    set shiftwidth=4
-    set tabstop=4
+    set shiftwidth=2
+    set tabstop=2
     set backspace=2
 
     set completeopt=menuone,longest,preview
@@ -156,6 +157,8 @@
     let g:autoformat_remove_trailing_spaces = 1
     let g:formatdef_phpcbf = '"/Users/sunfun/.composer/vendor/bin/phpcbf"'
     let g:formatters_php = ['phpcbf']
+    let g:formatdef_tslint = '"/usr/local/bin/tslint --fix"'
+    let g:formatters_typescript = ['tslint']
 " }
 
 " YouCompleteMe {
