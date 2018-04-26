@@ -6,6 +6,7 @@
 "   js-beautify
 "   eslint
 "   tslint
+"   typeScript-formatter
 " Composer
 "   phpcs
 "
