@@ -32,6 +32,17 @@ let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 0
 let g:ycm_collect_identifiers_from_tags_files = 0
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_filetype_blacklist = {
+    \ 'tagbar' : 1,
+    \ 'qf' : 1,
+    \ 'notes' : 1,
+    \ 'unite' : 1,
+    \ 'text' : 1,
+    \ 'vimwiki' : 1,
+    \ 'pandoc' : 1,
+    \ 'infolog' : 1,
+    \ 'mail' : 1
+    \}
 
 " Code Snippets (SirVer/ultisnips)
 let g:UltiSnipsExpandTrigger = "<c-c>"
@@ -48,13 +59,13 @@ let g:ale_linters = {
     \ 'typescript': ['tslint', 'tsserver'],
     \ 'jsx': ['eslint'],
     \ 'php': ['phpcs'],
-\}
+    \}
 let g:ale_fixers = {
     \ 'javascript': ['eslint'],
     \ 'typescript': ['tslint'],
     \ 'jsx': ['eslint'],
     \ 'php': ['phpcbf'],
-\}
+    \}
 let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_info_str = 'Info'
 let g:ale_echo_msg_warning_str = 'Warning'
