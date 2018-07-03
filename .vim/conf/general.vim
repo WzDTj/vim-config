@@ -94,4 +94,4 @@ command! -bang -nargs=*
   \                        shellescape(<q-args>),
   \                        1,
   \                        <bang>0)
-nnoremap <leader>sc :Find<space>
+nnoremap <leader>st :Find<space>
