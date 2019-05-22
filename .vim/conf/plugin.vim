@@ -8,6 +8,9 @@ call vundle#begin()
 " Plugin Manager
 Plugin 'VundleVim/Vundle.vim'
 
+" Theme
+Plugin 'daylerees/colour-schemes', { 'rtp': 'vim' }
+
 " Status Line
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -50,11 +53,16 @@ Plugin 'w0rp/ale'
 " Language Support
 Plugin 'jwalton512/vim-blade'
 Plugin 'mattn/emmet-vim'
-Plugin 'mxw/vim-jsx'
+Plugin 'chemzqm/vim-jsx-improve'
+Plugin 'pangloss/vim-javascript'
 Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'fatih/vim-go'
+Plugin 'dart-lang/dart-vim-plugin'
+
 " TypeScript
 Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'ianks/vim-tsx'
 
 " Version Control
 Plugin 'airblade/vim-gitgutter'
@@ -62,3 +70,4 @@ Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 filetype plugin indent on
+

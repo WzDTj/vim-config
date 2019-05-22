@@ -38,3 +38,11 @@ function! DeleteEmptyBuffers()
         exe 'bdelete' join(empty)
     endif
 endfunction
+
+function! RelocatePreviewWindow()
+    if &previewwindow
+        wincmd L
+        vertical resize 50
+    endif
+endfunction
+

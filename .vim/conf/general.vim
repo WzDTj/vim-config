@@ -1,12 +1,20 @@
 filetype plugin indent on
-colorscheme atom-dark-256
 syntax enable
+
+if has('gui_running')
+    colorscheme atom-dark
+else
+    colorscheme atom-dark-256
+endif
 
 " General
 set nocompatible
 set t_Co=256
+set lines=100
+set columns=150
+set guifont=monaco:h14
+set guioptions=
 let mapleader = "`"
-
 " File
 set fileformat=unix
 set encoding=utf-8
@@ -21,7 +29,7 @@ set number
 set signcolumn=yes
 set laststatus=2
 set textwidth=100
-set colorcolumn=121
+" set colorcolumn=121
 set showmatch
 set cursorline
 set splitright
@@ -95,3 +103,22 @@ command! -bang -nargs=*
   \                        1,
   \                        <bang>0)
 nnoremap <leader>st :Find<space>
+
+" Additional shortcut
+nnoremap <leader>f1 :Files<space>
+nnoremap <leader>f2 :Buffer<space>
+nnoremap <leader>f3 :Find<space>
+
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" Advanced customization using autoload functions
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '16%'})
