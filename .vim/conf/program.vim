@@ -25,19 +25,12 @@ let g:tagbar_type_markdown = {
   \ ]
 \ }
 
-" Code Formater (Chiel92/vim-autoformat)
-nnoremap <silent><leader>i :Autoformat<CR>
-let g:autoformat_autoindent = 1
-let g:autoformat_retab = 1
-let g:autoformat_remove_trailing_spaces = 1
-let g:formatdef_phpcbf = '"/Users/sunfun/.composer/vendor/bin/phpcbf"'
-let g:formatters_php = ['phpcbf']
-let g:formatdef_eslint = '"/usr/local/bin/eslint --fix"'
-let g:formatters_javascript = ['eslint']
-let g:formatdef_tslint = '"/usr/local/bin/tslint --fix"'
-let g:formatters_typescript = ['tslint']
-
 " Code Complement (Valloric/YouCompleteMe)
+nnoremap <leader>ycm :YcmCompleter<space>
+nnoremap <leader>def :YcmCompleter GoToDefinition<cr>
+nnoremap <leader>ref :YcmCompleter GoToReferences<cr>
+nnoremap <leader>doc :YcmCompleter GetDoc<cr>
+
 let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_always_populate_location_list = 1
 let g:ycm_complete_in_comments = 0
@@ -65,8 +58,11 @@ let g:UltiSnipsJumpBackwardTirrger = "<c-k>"
 let g:UltiSnipsEditSplit = "vertical"
 
 " Code Diagnose (w0rp/ale)
+nmap <leader>i <Plug>(ale_fix)
+
 let g:ale_completion_enabled = 0
 let g:ale_lint_on_enter = 1
+let g:ale_fix_on_save = 1
 let g:ale_open_list = 1
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
@@ -75,22 +71,24 @@ let g:ale_linters = {
     \ 'php': ['phpcs'],
     \ 'javascript': ['eslint'],
     \ 'jsx': ['eslint'],
-    \ 'typescript': ['tslint'],
+    \ 'typescript': ['eslint'],
+    \ 'vue': ['eslint'],
     \}
 let g:ale_fixers = {
+    \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \ 'html': ['prettier'],
+    \ 'css': ['prettier'],
     \ 'php': ['phpcbf'],
     \ 'javascript': ['eslint'],
     \ 'jsx': ['eslint'],
-    \ 'typescript': ['tslint'],
+    \ 'typescript': ['eslint'],
+    \ 'vue': ['prettier'],
+    \ 'markdown': ['prettier'],
     \}
 let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_info_str = 'Info'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] [%severity%] [%code%] %s'
-nnoremap <leader>ycm :YcmCompleter<space>
-nnoremap <leader>def :YcmCompleter GoToDefinition<cr>
-nnoremap <leader>ref :YcmCompleter GoToReferences<cr>
-nnoremap <leader>doc :YcmCompleter GetDoc<cr>
 
 " Version Control (airblade/vim-gitgutter)
 " set updatetime=100

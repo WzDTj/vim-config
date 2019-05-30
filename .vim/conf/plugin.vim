@@ -64,10 +64,16 @@ Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'ianks/vim-tsx'
 
+" Vue
+Plugin 'posva/vim-vue'
+
+" Markdown
+Plugin 'plasticboy/vim-markdown'
+Plugin 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+
 " Version Control
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 filetype plugin indent on
-
